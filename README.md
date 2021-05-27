@@ -5,15 +5,15 @@ Flutter için geliştirilmiş bir TC no doğrulama paketidir.
 ## - Örnek Kullanım
 
 Fluttertckimliknvigovtr checkGo = new Fluttertckimliknvigovtr(dogumTarihi: "2002",Ad:"İsmail",Soyad:"Döndü",TcNo:"2565233333");
-var checkFin = checkGo.getCheck();
+
+var test2 = test.getCheck().then((apiDenDonenMesaj){
+
+    debugPrint(apiDenDonenMesaj); // İşlemler
+
+});
 
 
-if(checkFin.toString() == "true"){
+## - ;
 
-// TC DOĞRU
+* Doğum tarihi mutlaka 4 karakterli olmalıdır.
 
-}else{
-
-// YANLIŞ
-
-}

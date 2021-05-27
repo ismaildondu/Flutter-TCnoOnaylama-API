@@ -13,7 +13,7 @@ class Fluttertckimliknvigovtr {
       required this.Soyad,
       required this.TcNo});
 
-  getCheck() async {
+  Future<String> getCheck() async {
     var xmls = Xml2Json();
     String soap = '''<?xml version="1.0" encoding="utf-8"?>
 <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
@@ -34,7 +34,7 @@ class Fluttertckimliknvigovtr {
       headers: {
         'Host': 'tckimlik.nvi.gov.tr',
         'Content-Type': 'text/xml; charset=utf-8',
-        'Content-Length': '${soap.length}',
+        'Content-Length': '470',
         'SOAPAction': 'http://tckimlik.nvi.gov.tr/WS/TCKimlikNoDogrula',
       },
       body: utf8.encode(soap),
@@ -47,6 +47,6 @@ class Fluttertckimliknvigovtr {
     var x = mainData["soap:Envelope"]["soap:Body"]["TCKimlikNoDogrulaResponse"]
         ["TCKimlikNoDogrulaResult"];
 
-    return x;
+    return x.toString();
   }
 }
