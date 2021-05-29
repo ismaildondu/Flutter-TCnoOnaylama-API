@@ -1,6 +1,6 @@
 name: fluttertckimliknvigovtr
 description: İsmail Döndü tarafından oluşturulmuş, Nüfus ve Vatandaşlık İşleri Genel Müdürlüğü API sorgusunu kullanarak TC onayı yapan bir paket.
-version: 0.0.2
+version: 0.0.4
 homepage: https://github.com/ismailDND/Flutter-TCnoOnaylama-API
 
 environment:
