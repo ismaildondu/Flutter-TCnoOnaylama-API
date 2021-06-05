@@ -1,6 +1,6 @@
 name: fluttertckimliknvigovtr
-description: Nüfus ve Vatandaşlık İşleri Genel Müdürlüğü API sorgusunu kullanarak TC onayı yapan bir paket.
-version: 0.0.5
+description: Nüfus ve Vatandaşlık İşleri Genel Müdürlüğü Mernis API sorgusunu kullanarak TC onayı yapan bir paket.
+version: 0.1.0
 homepage: https://github.com/ismailDND/Flutter-TCnoOnaylama-API
 
 environment:

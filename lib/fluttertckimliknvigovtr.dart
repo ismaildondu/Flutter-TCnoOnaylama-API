@@ -34,7 +34,7 @@ class Fluttertckimliknvigovtr {
       headers: {
         'Host': 'tckimlik.nvi.gov.tr',
         'Content-Type': 'text/xml; charset=utf-8',
-        'Content-Length': soap.length.toString(),
+        'Content-Length': utf8.encode(soap).length.toString(),
         'SOAPAction': 'http://tckimlik.nvi.gov.tr/WS/TCKimlikNoDogrula',
       },
       body: utf8.encode(soap),
@@ -44,7 +44,7 @@ class Fluttertckimliknvigovtr {
     var jsonString = forConversion.toParker();
     Map mainData = (jsonDecode(jsonString) as Map);
 
-    bool dataSent = mainData["soap:Envelope"]["soap:Body"]["TCKimlikNoDogrulaResponse"]
+    var dataSent = mainData["soap:Envelope"]["soap:Body"]["TCKimlikNoDogrulaResponse"]
         ["TCKimlikNoDogrulaResult"];
 
     return dataSent.toString();

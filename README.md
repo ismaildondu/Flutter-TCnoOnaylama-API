@@ -17,4 +17,4 @@ var test2 = checkGo.getCheck().then((apiDenDonenMesaj){
 
 * Doğum tarihi mutlaka 4 karakterli olmalıdır.
 
-* Thenden dönen değer String türündedir ve true veya false olarak gelir.
+* Thenden dönen değer String türündedir ve true veya false olarak döner.
