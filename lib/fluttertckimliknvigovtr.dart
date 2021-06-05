@@ -14,7 +14,7 @@ class Fluttertckimliknvigovtr {
       required this.TcNo});
 
   Future<String> getCheck() async {
-    var xmls = Xml2Json();
+      var forConversion = Xml2Json();
     String soap = '''<?xml version="1.0" encoding="utf-8"?>
 <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
   <soap:Body>
@@ -27,27 +27,27 @@ class Fluttertckimliknvigovtr {
   </soap:Body>
 </soap:Envelope>''';
 
-    var url = Uri.parse("https://tckimlik.nvi.gov.tr/Service/KPSPublic.asmx");
+    var apiUrl = Uri.parse("https://tckimlik.nvi.gov.tr/Service/KPSPublic.asmx");
 
-    var response = await http.post(
-      url,
+    var webReply = await http.post(
+      apiUrl,
       headers: {
         'Host': 'tckimlik.nvi.gov.tr',
         'Content-Type': 'text/xml; charset=utf-8',
-        'Content-Length': '470',
+        'Content-Length': soap.length.toString(),
         'SOAPAction': 'http://tckimlik.nvi.gov.tr/WS/TCKimlikNoDogrula',
       },
       body: utf8.encode(soap),
     );
 
-    xmls.parse(response.body);
-    var jsonString = xmls.toParker();
-    var mainData = (jsonDecode(jsonString) as Map);
+    forConversion.parse(webReply.body);
+    var jsonString = forConversion.toParker();
+    Map mainData = (jsonDecode(jsonString) as Map);
 
-    var x = mainData["soap:Envelope"]["soap:Body"]["TCKimlikNoDogrulaResponse"]
+    bool dataSent = mainData["soap:Envelope"]["soap:Body"]["TCKimlikNoDogrulaResponse"]
         ["TCKimlikNoDogrulaResult"];
 
-    return x.toString();
+    return dataSent.toString();
   }
 }
 
